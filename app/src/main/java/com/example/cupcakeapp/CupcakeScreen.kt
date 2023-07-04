@@ -83,6 +83,7 @@ fun CupcakeApp(
     val backStackEntry by navController.currentBackStackEntryAsState()
 
     val currentScreen = CupcakeScreen.valueOf(
+        //this allows you to show the back key if on another screen otherthan the start screen
         backStackEntry?.destination?.route ?: CupcakeScreen.Start.name
     )
 
@@ -91,7 +92,7 @@ fun CupcakeApp(
             CupcakeAppBar(
                 currentScreen = currentScreen,
                 canNavigateBack = navController.previousBackStackEntry != null ,
-                navigateUp = { navController.navigateUp() }
+                navigateUp = { navController.navigateUp() }//navigates back to the previous screen
             )
         }
     ) { innerPadding ->
